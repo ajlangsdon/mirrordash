@@ -8,7 +8,8 @@ var config = {
         //units: metric or imperial
         params: {
             q: 'Chandler, Arizona',
-            units: 'metric',
+            units: 'metric', // !!!!! This field gets updated dynamically based on "Temperature Format" value
+                             // !!!!! $node->field_temperature_format['und'][0]['value']
             // if you want a different lang for the weather that what is set above, change it here
             lang: 'en',
             APPID: 'b53b5800836025a9c6ba18f0e5a1c41a'

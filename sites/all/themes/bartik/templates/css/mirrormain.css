@@ -14,7 +14,11 @@ body, html {
 }
 .wi {
 	line-height: 75px;
+}
 
+.wind-units {
+	font-size: 0.7em;
+	padding-left: 3px;
 }
 
 .top
@@ -55,7 +59,7 @@ body, html {
 
 .center-top img {
 	width: 400px;
-	opacity: .3;
+	opacity: .9;
 }
 
 .lower-third
@@ -158,7 +162,7 @@ body, html {
 	font-weight: 100;
 }
 
-.time {
+.time, .date {
 	text-align: center;
 }
 

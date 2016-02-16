@@ -2,7 +2,20 @@
 
 $nid = $node->nid;
 
+
+if(!empty($node->field_mirror_background_image['und'][0]['fid'])) {
+    $watermark_img = $node->field_mirror_background_image['und'][0]['fid'];
+    $file = file_load($watermark_img);
+    $uri = $file->uri;
+    $style = 'mirror_watermark';
+    $watermark_img = image_style_url($style, $uri);
+    $watermark_print = "<img src='$watermark_img' />";
+}
+else { $watermark_print = ""; }
+
 ?>
+
+
 
 <link rel="stylesheet" type="text/css" href="/sites/all/themes/bartik/templates/css/mirrormain.css">
 <link rel="stylesheet" type="text/css" href="/sites/all/themes/bartik/templates/css/weathericons.css">
@@ -27,7 +40,7 @@ $nid = $node->nid;
 
 <div class="top left"><div class="date small dimmed"></div><div class="time"></div><div class="calendar xxsmall"></div></div>
 <div class="top right"><div class="windsun small dimmed"></div><div class="temp"></div><div class="forecast small dimmed"></div></div>
-<!--<div class="center-top"><img src="images/finger.png" /></div>-->
+<div class="center-top"><?php echo $watermark_print; ?></div>
 <div class="center-ver center-hor"></div>
 <div class="lower-third center-hor"><div class="compliment light"></div></div>
 <div class="bottom center-hor"><div class="news medium"></div></div>
@@ -46,5 +59,5 @@ $nid = $node->nid;
 <script src="/sites/all/themes/bartik/templates/js/time/time.js" type="text/javascript"></script>
 <script src="/sites/all/themes/bartik/templates/js/news/news.js" type="text/javascript"></script>
 <script src="/sites/all/themes/bartik/templates/js/main.js?nocache=<?php echo md5(microtime()) ?>"></script>
-<!-- <script src="/sites/all/themes/bartik/templates/js/socket.io.min.js"></script> -->
-<!-- <meta http-equiv="refresh" content="9000"> -->
+<script src="/sites/all/themes/bartik/templates/js/socket.io.min.js"></script>
+<meta http-equiv="refresh" content="9000">

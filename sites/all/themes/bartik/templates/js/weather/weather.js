@@ -89,7 +89,7 @@ weather.updateCurrentWeather = function () {
 				_sunrise = moment(data.sys.sunrise*1000).format('h:mma'),
 				_sunset = moment(data.sys.sunset*1000).format('h:mma');
 
-			var _newWindHtml = '<span class="wi wi-strong-wind xdimmed"></span> ' + this.ms2Beaufort(_wind),
+			var _newWindHtml = '<span class="wi wi-strong-wind xdimmed"></span> ' + this.ms2Beaufort(_wind) + '<span class="wind-units">mph</span>',
 				_newSunHtml = '<span class="wi wi-sunrise xdimmed"></span> ' + _sunrise;
 
 			if (_sunrise < _now && _sunset > _now) {
